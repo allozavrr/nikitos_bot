@@ -7,10 +7,10 @@ from random import randint
 # from PIL import Image, ImageDraw, ImageFont
 
 logging.basicConfig(level=logging.INFO)
-bot = telebot.TeleBot('bot_token')
-CHANNEL_NAME = '@bot_name'
+bot = telebot.TeleBot('5336575340:AAFKzbntkzMetYqNKUowll2WoO0fQr5Vwfg')
+CHANNEL_NAME = '@Lys_Mykyta_bot'
 
-def bot_name():
+def Lys_Mykyta_bot():
     f = open('words.txt', 'r', encoding='UTF-8')
     all_words = f.read().split('\n')
     f.close()
@@ -75,7 +75,7 @@ def request_photo(message):
 
 
 
-bot_name()
+Lys_Mykyta_bot()
 
 if __name__ == '__main__':
    bot.polling(none_stop=True, interval=0)
