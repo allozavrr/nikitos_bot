@@ -37,7 +37,7 @@ def bot_name():
         message = (f'{word[0]}\n{word[1]}\n{word[2]}\n\n     - {wish[0].title()} {wish[1].title()} {wish[2].title()}, {randint(0, 2)} г. {gender}')
         j += 1
         search = word[randint(0,2)] 
-        print(f'японская херня {search}')
+        print(f'japan crazy {search}')
         picture(message, search)
         time.sleep(randint(28800, 57600))
 
@@ -45,7 +45,7 @@ def bot_name():
 def picture(message, search):
     # generate word to image
 
-    im = requests.get(request_photo('японская херня'))  
+    im = requests.get(request_photo('japan crazy'))  
     out = open("img.jpg", "wb")
     out.write(im.content)
     out.close()
@@ -61,7 +61,7 @@ def picture(message, search):
         font=font,
         fill='#d60000') 
 
-    bot.send_photo(CHANNEL_NAME, photo = request_photo(f'Японская херня {search}'), caption = message)
+    bot.send_photo(CHANNEL_NAME, photo = request_photo(f'japan crazy {search}'), caption = message)
 
 def request_photo(message):
     req = requests.get("https://www.google.com/search?q="+message)
