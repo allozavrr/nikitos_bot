@@ -7,7 +7,7 @@ from random import randint
 # from PIL import Image, ImageDraw, ImageFont
 
 logging.basicConfig(level=logging.INFO)
-bot = telebot.TeleBot('5336575340:AAFKzbntkzMetYqNKUowll2WoO0fQr5Vwfg')
+bot = telebot.TeleBot('bot_token')
 CHANNEL_NAME = '@Lys_Mykyta_bot'
 
 def Lys_Mykyta_bot():
