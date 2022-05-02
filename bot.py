@@ -67,7 +67,7 @@ def picture(message, search):
     bot.send_photo(CHANNEL_NAME, photo = request_photo(f'japan crazy {search}'), caption = message)
 
 def request_photo(message):
-    req = requests.get("https://yandex.ru/images/search?text="+message)
+    req = requests.get("https://www.google.com/search?q="+message)
     ph_links = list(filter(lambda x: '.jpg' in x, re.findall('''(?<=["'])[^"']+''', req.text)))
     ph_list = []
     for i in range(len(ph_links)):
