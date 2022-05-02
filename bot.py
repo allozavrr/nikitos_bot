@@ -1,10 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import telebot
 import logging
 import time
 import re
 import requests
 from random import randint
-# from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont
 
 logging.basicConfig(level=logging.INFO)
 bot = telebot.TeleBot('bot_token')
@@ -19,14 +22,14 @@ def Lys_Mykyta_bot():
     all_wishes = f.read().split('\n')
     f.close()
     j = 0
-    print('Всім доброго дня, шановні дяді й тьоті Хʼюстону!')
-    while j < 2:
+    print('Hello')
+    while j < 10000:
         a = randint(0,1)
         print(a)
         if a == 1:
-            gender ='дядь'
+            gender ='man'
         else: 
-            gender = 'тьоть'
+            gender = 'woman'
         i =0 
         wish = [1, 2, 3]
         word = [1, 2, 3]
@@ -34,7 +37,7 @@ def Lys_Mykyta_bot():
             wish[i] = all_wishes[randint(1, len(all_wishes)-1)]
             word[i] = all_words[randint(1, len(all_words)-1)] 
             i += 1
-        message = (f'{word[0]}\n{word[1]}\n{word[2]}\n\n     - {wish[0].title()} {wish[1].title()} {wish[2].title()}, {randint(0, 2)} г. {gender}')
+        message = (f'{word[0]}\n{word[1]}\n{word[2]}\n\n     - {wish[0].title()} {wish[1].title()} {wish[2].title()}, {randint(0, 2)}, {gender}')
         j += 1
         search = word[randint(0,2)] 
         print(f'japan crazy {search}')
@@ -64,7 +67,7 @@ def picture(message, search):
     bot.send_photo(CHANNEL_NAME, photo = request_photo(f'japan crazy {search}'), caption = message)
 
 def request_photo(message):
-    req = requests.get("https://www.google.com/search?q="+message)
+    req = requests.get("https://yandex.ru/images/search?text="+message)
     ph_links = list(filter(lambda x: '.jpg' in x, re.findall('''(?<=["'])[^"']+''', req.text)))
     ph_list = []
     for i in range(len(ph_links)):
